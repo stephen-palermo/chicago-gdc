@@ -29,7 +29,7 @@
 - **(d)** Minimize CPU utilization.
 - **(e)** Maximize E2E FPS.
 
-### 4. Expected Results
+### 4. Example Results
 
 **Setup — AMX check:** Running `lscpu | grep amx` should list the AMX feature flags, confirming the CPU supports Advanced Matrix Extensions:
 
