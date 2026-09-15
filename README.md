@@ -19,16 +19,6 @@
 - **(a)** Start inference.
 - **(b)** Show inference.
 
-**Expected Results:** Once inference is running, the video feed shows live object detections with an overlay of runtime metrics:
-
-```text
-Time: 2026-09-15T16:20:20 || Frame: 3858 || Elapsed: 6m 54s 980.00ms
-Use Case: dwell/time || Model: [Demo] - DFINE-nano - mscoco80 - (640,640) - FP16
-Video FPS (Source / Target / Processed): 30.00 / 30.00 / 9.30 || AI FPS (Now / Avg): 8.79 / 9.67
-Framework: ONNX (CPU) || Precision: FP16 || CPU (%): 1601.4 || RAM (MB): 420.5 || Watts: 287.6
-Mask 1: Occupancy 1 || Avg. dwell time (sec.) 155.0
-```
-
 ### 3. Optimize
 
 **Goal:** Optimize the AI model / framework / precision — get up to 400 points.
@@ -41,7 +31,7 @@ Mask 1: Occupancy 1 || Avg. dwell time (sec.) 155.0
 
 ### 4. Expected Results
 
-Running `lscpu | grep amx` should list the AMX feature flags, confirming the CPU supports Advanced Matrix Extensions:
+**Setup — AMX check:** Running `lscpu | grep amx` should list the AMX feature flags, confirming the CPU supports Advanced Matrix Extensions:
 
 ```console
 $ lscpu | grep amx
@@ -50,7 +40,7 @@ Flags: ... amx_bf16 avx512_fp16 amx_tile amx_int8 ...
 
 Look for **`amx_bf16`**, **`amx_tile`**, and **`amx_int8`** in the output.
 
-Running `btop` should display per-core CPU utilization, frequency, and temperatures. On this platform you should see a **Xeon Gold 6438N** with 32 cores (C0–C31):
+**Setup — CPU utilization:** Running `btop` should display per-core CPU utilization, frequency, and temperatures. On this platform you should see a **Xeon Gold 6438N** with 32 cores (C0–C31):
 
 ```console
 16:19:10                                                    2000ms
@@ -63,6 +53,16 @@ C3  53%  40°C   C10 51%  43°C   C17 54%  42°C   C24 54%  41°C  C31 52% 43°C
 C4  53%  41°C   C11 53%  41°C   C18 55%  44°C   C25 54%  41°C
 C5  53%  44°C   C12 53%  40°C   C19 53%  40°C   C26 54%  41°C
 C6  53%  43°C   C13 52%  40°C   C20 53%  42°C   C27 52%  42°C  LAV: 19.5 21.5 14.7
+```
+
+**Run Inference — live overlay:** Once inference is running, the video feed shows live object detections with an overlay of runtime metrics:
+
+```text
+Time: 2026-09-15T16:20:20 || Frame: 3858 || Elapsed: 6m 54s 980.00ms
+Use Case: dwell/time || Model: [Demo] - DFINE-nano - mscoco80 - (640,640) - FP16
+Video FPS (Source / Target / Processed): 30.00 / 30.00 / 9.30 || AI FPS (Now / Avg): 8.79 / 9.67
+Framework: ONNX (CPU) || Precision: FP16 || CPU (%): 1601.4 || RAM (MB): 420.5 || Watts: 287.6
+Mask 1: Occupancy 1 || Avg. dwell time (sec.) 155.0
 ```
 
 ## Overview
