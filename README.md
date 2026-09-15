@@ -2,6 +2,33 @@
 
 **First team to 500 points wins!**
 
+## Object Detection Challenge
+
+### 1. Setup
+
+**Goal:** Get familiar with the GUI and CPU.
+
+- **(a) Check CPU for AMX:** `lscpu | grep amx`
+- **(b) Login to the app** and view the live RTSP video.
+- **(c) Check CPU utilization:** `btop`
+
+### 2. Run Inference
+
+**Goal:** Start live inference → get 100 points.
+
+- **(a)** Start inference.
+- **(b)** Show inference.
+
+### 3. Optimize
+
+**Goal:** Optimize the AI model / framework / precision — get up to 400 points.
+
+- **(a)** Change the AI framework.
+- **(b)** Change the model.
+- **(c)** Change the precision.
+- **(d)** Minimize CPU utilization.
+- **(e)** Maximize E2E FPS.
+
 ## Overview
 
 In this round, you are tasked with leveraging Intel's Xeon CPU to perform AI inference on a live RTSP camera feed. Your goal is to achieve the fastest possible inference frames per second (FPS) and, as **extra credit**, to do so with the minimum number of Xeon CPU cores.
