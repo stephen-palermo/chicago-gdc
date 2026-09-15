@@ -1,4 +1,4 @@
-# AI Object Detection with Intel Xeon CPU
+# AI Object Detection w/ Intel CPU and Google GDC
 
 **First team to 500 points wins!**
 
@@ -8,7 +8,7 @@
 
 **Goal:** Get familiar with the GUI and CPU.
 
-- **(a) Check CPU for AMX:** `lscpu | grep amx`
+- **(a) SSH into node2 and check CPU for AMX:** `lscpu | grep amx`
 - **(b) Login to the app** and view the live RTSP video.
 - **(c) Check CPU utilization:** `btop`
 
@@ -37,7 +37,7 @@ Each Xeon CPU core has a built-in AI accelerator called **AMX (Advanced Matrix E
 
 > **Goal:** Achieve **> 20 inference FPS** using as few Xeon CPU cores as possible.
 
-## Getting Started
+## Login to Object Detection GUI
 
 Start here: [https://app.padme.ai/](https://app.padme.ai/)
 
@@ -54,7 +54,7 @@ Start here: [https://app.padme.ai/](https://app.padme.ai/)
 
 ### Monitoring CPU Core Usage
 
-SSH to **Node 2 (of 3)** and run the `top` command to determine how many CPU cores are being used.
+SSH into **node2** (the container that will run the inference) with the following credentials:
 
 | Team   | SSH Command                  | Password            |
 | ------ | ---------------------------- | ------------------- |
